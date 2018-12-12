@@ -6,7 +6,7 @@ from data.dataloader import dataset
 parser = argparse.ArgumentParser(description='preprocess.py')
 
 ##
-## **Preprocess Options**
+## **Preprocess Options**trg=None
 ##
 
 parser.add_argument('-config', help="Read options from this file")

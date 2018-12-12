@@ -23,7 +23,7 @@ parser = argparse.ArgumentParser(description='train.py')
 
 parser.add_argument('-config', default='config.yaml', type=str,
                     help="config file")
-parser.add_argument('-gpus', default=[], nargs='+', type=int,
+parser.add_argument('-gpus', default=[1,0], nargs='+', type=int,
                     help="Use CUDA on the listed devices.")
 parser.add_argument('-restore', default='', type=str,
                     help="restore checkpoint")
@@ -145,6 +145,8 @@ with open(opt.label_dict_file, 'r') as f:
 
 # train
 def train(epoch):
+    global e, updates, total_loss, start_time, report_total
+
     e = epoch
     model.train()
 
@@ -155,7 +157,6 @@ def train(epoch):
     if opt.model == 'gated': 
         model.current_epoch = epoch
 
-    global e, updates, total_loss, start_time, report_total
 
     for raw_src, src, src_len, raw_tgt, tgt, tgt_len in trainloader:
 
@@ -171,7 +172,10 @@ def train(epoch):
 
         model.zero_grad()
         outputs, targets = model(src, src_len, tgt, tgt_len)
-        loss, num_total, _, _, _ = model.compute_loss(outputs, targets, opt.memory)
+        if len(opt.gpus) > 1:
+            loss, num_total, _, _, _ = model.module.compute_loss(outputs, targets, opt.memory)
+        else:
+            loss, num_total, _, _, _ = model.compute_loss(outputs, targets, opt.memory)
 
         total_loss += loss
         report_total += num_total
