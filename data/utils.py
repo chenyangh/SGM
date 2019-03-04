@@ -7,8 +7,7 @@ import numpy as np
 
 from sklearn import metrics
 
-EMOS = ['disgust', 'anger', 'fear',  'sadness', 'surprise', 'joy']
-EMOS = EMOS[::-1]
+# EMOS = ['disgust', 'anger', 'fear',  'sadness', 'surprise', 'joy']
 class AttrDict(dict):
     def __init__(self, *args, **kwargs):
         super(AttrDict, self).__init__(*args, **kwargs)
@@ -86,8 +85,7 @@ def eval_metrics(reference, candidate, label_dict, log_path):
 
     def get_metrics(y, y_pre):
         from sklearn.metrics import classification_report
-        print(classification_report(y, y_pre, target_names=EMOS, digits=4))
-
+        # print(classification_report(y, y_pre, digits=4))
         hamming_loss = metrics.hamming_loss(y, y_pre)
         macro_f1 = metrics.f1_score(y, y_pre, average='macro')
         macro_precision = metrics.precision_score(y, y_pre, average='macro')

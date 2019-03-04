@@ -21,9 +21,9 @@ import codecs
 #config
 parser = argparse.ArgumentParser(description='train.py')
 
-parser.add_argument('-config', default='config.yaml', type=str,
+parser.add_argument('-config', default='config_cbet.yaml', type=str,
                     help="config file")
-parser.add_argument('-gpus', default=[1,0], nargs='+', type=int,
+parser.add_argument('-gpus', default=[0], nargs='+', type=int,
                     help="Use CUDA on the listed devices.")
 parser.add_argument('-restore', default='', type=str,
                     help="restore checkpoint")
@@ -45,7 +45,7 @@ parser.add_argument('-unk', default=True, type=bool,
                     help="replace unk")
 parser.add_argument('-memory', default=False, type=bool,
                     help="memory efficiency")
-parser.add_argument('-label_dict_file', default='./data/data/rcv1.json', type=str,
+parser.add_argument('-label_dict_file', default='./data/data/cbet.json', type=str,
                     help="label_dict")
 
 opt = parser.parse_args()

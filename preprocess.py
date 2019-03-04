@@ -9,29 +9,30 @@ parser = argparse.ArgumentParser(description='preprocess.py')
 ## **Preprocess Options**trg=None
 ##
 
+post_fix = '_cbet'
 parser.add_argument('-config', help="Read options from this file")
 
 parser.add_argument('-train_src', 
-                    default='./data/data/text_train',
+                    default='./data/data/text_train' + post_fix,
                     help="Path to the training source data")
 parser.add_argument('-train_tgt', 
-                    default='./data/data/label_train',
+                    default='./data/data/label_train' + post_fix,
                     help="Path to the training target data")
 parser.add_argument('-valid_src',
-                    default='./data/data/text_val',
+                    default='./data/data/text_val' + post_fix,
                     help="Path to the validation source data")
 parser.add_argument('-valid_tgt', 
-                    default='./data/data/label_val',
+                    default='./data/data/label_val' + post_fix,
                     help="Path to the validation target data")
 parser.add_argument('-test_src', 
-                    default='./data/data/text_test',
+                    default='./data/data/text_test' + post_fix,
                     help="Path to the validation source data")
 parser.add_argument('-test_tgt', 
-                    default='./data/data/label_test',
+                    default='./data/data/label_test' + post_fix,
                     help="Path to the validation target data")
 
 parser.add_argument('-save_data', 
-                    default='./data/data/save_data',
+                    default='./data/data/save_data' + post_fix,
                     help="Output file for the prepared data")
 
 parser.add_argument('-src_vocab_size', type=int, default=50000,
