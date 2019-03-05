@@ -85,7 +85,7 @@ def eval_metrics(reference, candidate, label_dict, log_path):
 
     def get_metrics(y, y_pre):
         from sklearn.metrics import classification_report
-        # print(classification_report(y, y_pre, digits=4))
+        print(classification_report(y, y_pre, digits=4))
         hamming_loss = metrics.hamming_loss(y, y_pre)
         macro_f1 = metrics.f1_score(y, y_pre, average='macro')
         macro_precision = metrics.precision_score(y, y_pre, average='macro')

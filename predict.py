@@ -22,7 +22,7 @@ import numpy as np
 
 #config
 parser = argparse.ArgumentParser(description='train.py')
-parser.add_argument('-config', default='config.yaml', type=str,
+parser.add_argument('-config', default='config_cbet.yaml', type=str,
                     help="config file")
 parser.add_argument('-gpus', default=[], nargs='+', type=int,
                     help="Use CUDA on the listed devices.")
@@ -46,7 +46,7 @@ parser.add_argument('-memory', action='store_true',
                     help="memory efficiency")
 parser.add_argument('-beam_size', type=int, default=1,
                     help="beam search size")
-parser.add_argument('-label_dict_file', default='./data/data/rcv1.json', type=str,
+parser.add_argument('-label_dict_file', default='./data/data/cbet.json', type=str,
                     help="label_dict")
 
 opt = parser.parse_args()

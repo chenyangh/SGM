@@ -1,5 +1,5 @@
-data: './data/data/save_data_cbet'
-log: './data/data/log_cbet/'
+data: './data/data/save_data'
+log: './data/data/log/'
 epoch: 50
 batch_size: 64
 param_init: 0.1
