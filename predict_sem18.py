@@ -26,7 +26,7 @@ parser.add_argument('-config', default='config_sem18.yaml', type=str,
                     help="config file")
 parser.add_argument('-gpus', default=[], nargs='+', type=int,
                     help="Use CUDA on the listed devices.")
-parser.add_argument('-restore', default='.data/data/log_sem18/2019-03-04-15:43:54/best_micro_f1_checkpoint.pt', type=str,
+parser.add_argument('-restore', default='./data/data/log_sem18/2019-03-04-15:43:54/best_micro_f1_checkpoint.pt', type=str,
                     help="restore checkpoint")
 parser.add_argument('-seed', type=int, default=1234,
                     help="Random seed")
