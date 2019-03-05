@@ -86,6 +86,7 @@ else:
 
 # model
 print('building model...\n')
+print('label size:', tgt_vocab.size())
 model = getattr(models, opt.model)(config, src_vocab.size(), tgt_vocab.size(), use_cuda,
                        pretrain=pretrain_embed, score_fn=opt.score) 
 
