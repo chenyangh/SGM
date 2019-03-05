@@ -26,7 +26,7 @@ parser.add_argument('-config', default='config_cbet.yaml', type=str,
                     help="config file")
 parser.add_argument('-gpus', default=[], nargs='+', type=int,
                     help="Use CUDA on the listed devices.")
-parser.add_argument('-restore', default='./data/data/sgm_rcv1.pt', type=str,
+parser.add_argument('-restore', default='./data/data/log_cbet/2019-03-04-15:20:55/best_micro_f1_checkpoint.pt', type=str,
                     help="restore checkpoint")
 parser.add_argument('-seed', type=int, default=1234,
                     help="Random seed")
